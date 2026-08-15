@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'quiz_2_screen.dart';
 
 class Quiz1Screen extends StatefulWidget {
   const Quiz1Screen({super.key});
@@ -25,7 +26,6 @@ class _Quiz1ScreenState extends State<Quiz1Screen> {
       body: SafeArea(
         child: Column(
           children: [
-
             // ── PROGRESS BAR ──
             _buildProgressBar(1),
 
@@ -35,10 +35,9 @@ class _Quiz1ScreenState extends State<Quiz1Screen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-
                     const SizedBox(height: 16),
 
-                    // ── BACK BUTTON ──
+                    // Back button
                     GestureDetector(
                       onTap: () => Navigator.pop(context),
                       child: const Row(
@@ -58,7 +57,7 @@ class _Quiz1ScreenState extends State<Quiz1Screen> {
 
                     const SizedBox(height: 20),
 
-                    // ── EYEBROW ──
+                    // Eyebrow
                     const Text(
                       'BUILDING YOUR PLAN',
                       style: TextStyle(
@@ -72,7 +71,7 @@ class _Quiz1ScreenState extends State<Quiz1Screen> {
 
                     const SizedBox(height: 12),
 
-                    // ── HEADLINE ──
+                    // Headline
                     RichText(
                       text: const TextSpan(
                         style: TextStyle(
@@ -84,7 +83,8 @@ class _Quiz1ScreenState extends State<Quiz1Screen> {
                           letterSpacing: -0.5,
                         ),
                         children: [
-                          TextSpan(text: 'How long have you\nbeen dealing with '),
+                          TextSpan(
+                              text: 'How long have you\nbeen dealing with '),
                           TextSpan(
                             text: 'this?',
                             style: TextStyle(
@@ -111,7 +111,7 @@ class _Quiz1ScreenState extends State<Quiz1Screen> {
 
                     const SizedBox(height: 24),
 
-                    // ── OPTIONS ──
+                    // Options
                     ...List.generate(_options.length, (index) {
                       final isSelected = _selected == index;
                       return GestureDetector(
@@ -120,9 +120,7 @@ class _Quiz1ScreenState extends State<Quiz1Screen> {
                           width: double.infinity,
                           margin: const EdgeInsets.only(bottom: 10),
                           padding: const EdgeInsets.symmetric(
-                            horizontal: 16,
-                            vertical: 16,
-                          ),
+                              horizontal: 16, vertical: 16),
                           decoration: BoxDecoration(
                             color: isSelected
                                 ? const Color(0x1AC9A84C)
@@ -137,21 +135,16 @@ class _Quiz1ScreenState extends State<Quiz1Screen> {
                           ),
                           child: Row(
                             children: [
-                              Text(
-                                _options[index]['emoji']!,
-                                style: const TextStyle(fontSize: 20),
-                              ),
+                              Text(_options[index]['emoji']!,
+                                  style: const TextStyle(fontSize: 20)),
                               const SizedBox(width: 12),
                               Expanded(
                                 child: Text(
                                   _options[index]['label']!,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontFamily: 'DM Sans',
                                     fontSize: 15,
-                                    fontWeight: FontWeight.w400,
-                                    color: isSelected
-                                        ? const Color(0xFFEDEAE0)
-                                        : const Color(0xFFEDEAE0),
+                                    color: Color(0xFFEDEAE0),
                                   ),
                                 ),
                               ),
@@ -163,11 +156,8 @@ class _Quiz1ScreenState extends State<Quiz1Screen> {
                                     color: Color(0xFFC9A84C),
                                     shape: BoxShape.circle,
                                   ),
-                                  child: const Icon(
-                                    Icons.check,
-                                    color: Color(0xFF0A0B09),
-                                    size: 12,
-                                  ),
+                                  child: const Icon(Icons.check,
+                                      color: Color(0xFF0A0B09), size: 12),
                                 ),
                             ],
                           ),
@@ -189,7 +179,12 @@ class _Quiz1ScreenState extends State<Quiz1Screen> {
                 child: ElevatedButton(
                   onPressed: _selected >= 0
                       ? () {
-                          // Navigate to Quiz 2
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => Quiz2Screen(),
+                            ),
+                          );
                         }
                       : null,
                   style: ElevatedButton.styleFrom(
