@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'success_screen.dart';
+import 'widgets/anchor_button.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -42,7 +43,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
               const SizedBox(height: 8),
 
               // ── BACK BUTTON ──
@@ -285,36 +285,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
               const SizedBox(height: 20),
 
               // ── CTA BUTTON — navigates to Success ──
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => SuccessScreen(),
-                      ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFC9A84C),
-                    foregroundColor: const Color(0xFF0A0B09),
-                    padding: const EdgeInsets.symmetric(vertical: 18),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
+              AnchorPrimaryButton(
+                label: 'Create my account',
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => SuccessScreen(),
                     ),
-                    elevation: 0,
-                  ),
-                  child: const Text(
-                    'Create my account',
-                    style: TextStyle(
-                      fontFamily: 'Fraunces',
-                      fontSize: 17,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xFF0A0B09),
-                    ),
-                  ),
-                ),
+                  );
+                },
               ),
 
               const SizedBox(height: 16),

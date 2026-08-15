@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'education_2_screen.dart';
+import 'widgets/anchor_button.dart';
 
 class Education1Screen extends StatefulWidget {
   const Education1Screen({super.key});
@@ -204,31 +205,12 @@ class _Education1ScreenState extends State<Education1Screen>
               // ── NEXT BUTTON ──
               Padding(
                 padding: const EdgeInsets.fromLTRB(28, 0, 28, 24),
-                child: SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => Education2Screen(),
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFC9A84C),
-                      padding: const EdgeInsets.symmetric(vertical: 18),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      elevation: 0,
-                    ),
-                    child: const Text(
-                      'I understand — show me the way out →',
-                      style: TextStyle(
-                        fontFamily: 'Fraunces',
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600,
-                        color: Color(0xFF0A0B09),
-                      ),
+                child: AnchorPrimaryButton(
+                  label: 'I understand — show me the way out',
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => Education2Screen(),
                     ),
                   ),
                 ),

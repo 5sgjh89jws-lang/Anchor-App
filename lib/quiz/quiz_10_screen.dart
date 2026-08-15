@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 import '../education_1_screen.dart';
+import '../widgets/anchor_button.dart';
 
 class Quiz10Screen extends StatefulWidget {
   const Quiz10Screen({super.key});
@@ -459,24 +460,11 @@ class _Quiz10ScreenState extends State<Quiz10Screen>
               const SizedBox(height: 10),
               _planItem('Recovery Type', 'Customised', const Color(0xFF3A6A9A)),
               const SizedBox(height: 32),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () => Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => Education1Screen())),
-                  style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFC9A84C),
-                      padding: const EdgeInsets.symmetric(vertical: 18),
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(16)),
-                      elevation: 0),
-                  child: const Text('Unlock my plan →',
-                      style: TextStyle(
-                          fontFamily: 'Fraunces',
-                          fontSize: 17,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xFF0A0B09))),
-                ),
+              AnchorPrimaryButton(
+                label: 'Unlock my plan',
+                icon: Icons.arrow_forward,
+                onPressed: () => Navigator.push(context,
+                    MaterialPageRoute(builder: (_) => Education1Screen())),
               ),
               const SizedBox(height: 12),
               const Text('7-day free trial · No charge today',

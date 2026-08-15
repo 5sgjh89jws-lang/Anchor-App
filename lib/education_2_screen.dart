@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'education_3_screen.dart';
+import 'widgets/anchor_button.dart';
 
 class Education2Screen extends StatefulWidget {
   const Education2Screen({super.key});
@@ -277,31 +278,12 @@ class _Education2ScreenState extends State<Education2Screen>
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(28, 0, 28, 24),
-                child: SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => Education3Screen(),
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFC9A84C),
-                      padding: const EdgeInsets.symmetric(vertical: 18),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      elevation: 0,
-                    ),
-                    child: const Text(
-                      'Show me what\'s possible →',
-                      style: TextStyle(
-                        fontFamily: 'Fraunces',
-                        fontSize: 17,
-                        fontWeight: FontWeight.w600,
-                        color: Color(0xFF0A0B09),
-                      ),
+                child: AnchorPrimaryButton(
+                  label: 'Show me what\'s possible',
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => Education3Screen(),
                     ),
                   ),
                 ),

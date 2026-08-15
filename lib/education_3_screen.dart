@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'signup_screen.dart';
+import 'widgets/anchor_button.dart';
 
 class Education3Screen extends StatefulWidget {
   const Education3Screen({super.key});
@@ -218,31 +219,12 @@ class _Education3ScreenState extends State<Education3Screen>
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(28, 0, 28, 24),
-                child: SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => SignUpScreen(),
-                      ),
-                    ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFFC9A84C),
-                      padding: const EdgeInsets.symmetric(vertical: 18),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16),
-                      ),
-                      elevation: 0,
-                    ),
-                    child: const Text(
-                      'I\'m ready. Let\'s start →',
-                      style: TextStyle(
-                        fontFamily: 'Fraunces',
-                        fontSize: 17,
-                        fontWeight: FontWeight.w600,
-                        color: Color(0xFF0A0B09),
-                      ),
+                child: AnchorPrimaryButton(
+                  label: 'I\'m ready. Let\'s start',
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => SignUpScreen(),
                     ),
                   ),
                 ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'signup_screen.dart';
 import 'forgot_password_screen.dart';
+import 'widgets/anchor_button.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -31,7 +32,6 @@ class _LoginScreenState extends State<LoginScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
               const SizedBox(height: 8),
 
               // ── BACK BUTTON ──
@@ -237,29 +237,9 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 28),
 
               // ── CTA BUTTON ──
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFC9A84C),
-                    foregroundColor: const Color(0xFF0A0B09),
-                    padding: const EdgeInsets.symmetric(vertical: 18),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    elevation: 0,
-                  ),
-                  child: const Text(
-                    'Log in to my account',
-                    style: TextStyle(
-                      fontFamily: 'Fraunces',
-                      fontSize: 17,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xFF0A0B09),
-                    ),
-                  ),
-                ),
+              AnchorPrimaryButton(
+                label: 'Log in to my account',
+                onPressed: () {},
               ),
 
               const SizedBox(height: 16),

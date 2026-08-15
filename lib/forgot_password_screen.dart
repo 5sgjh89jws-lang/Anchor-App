@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'widgets/anchor_button.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
@@ -27,7 +28,6 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-
               const SizedBox(height: 8),
 
               // ── BACK BUTTON ──
@@ -207,33 +207,13 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               if (_emailSent) const SizedBox(height: 16),
 
               // ── CTA BUTTON ──
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    if (_emailController.text.isNotEmpty) {
-                      setState(() => _emailSent = true);
-                    }
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFC9A84C),
-                    foregroundColor: const Color(0xFF0A0B09),
-                    padding: const EdgeInsets.symmetric(vertical: 18),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    elevation: 0,
-                  ),
-                  child: Text(
-                    _emailSent ? 'Resend reset link' : 'Send reset link',
-                    style: const TextStyle(
-                      fontFamily: 'Fraunces',
-                      fontSize: 17,
-                      fontWeight: FontWeight.w600,
-                      color: Color(0xFF0A0B09),
-                    ),
-                  ),
-                ),
+              AnchorPrimaryButton(
+                label: _emailSent ? 'Resend reset link' : 'Send reset link',
+                onPressed: () {
+                  if (_emailController.text.isNotEmpty) {
+                    setState(() => _emailSent = true);
+                  }
+                },
               ),
 
               const SizedBox(height: 16),

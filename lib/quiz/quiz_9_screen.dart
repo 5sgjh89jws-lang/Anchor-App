@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'quiz_10_screen.dart';
+import '../widgets/anchor_button.dart';
 
 class Quiz9Screen extends StatefulWidget {
   const Quiz9Screen({super.key});
@@ -132,33 +133,15 @@ class _Quiz9ScreenState extends State<Quiz9Screen> {
             ),
             Padding(
               padding: const EdgeInsets.fromLTRB(28, 0, 28, 24),
-              child: SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                      onPressed: _selected >= 0
-                          ? () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (_) => Quiz10Screen()));
-                            }
-                          : null,
-                      style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFFC9A84C),
-                          disabledBackgroundColor:
-                              Colors.white.withValues(alpha: 0.08),
-                          padding: const EdgeInsets.symmetric(vertical: 18),
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16)),
-                          elevation: 0),
-                      child: Text('Continue →',
-                          style: TextStyle(
-                              fontFamily: 'Fraunces',
-                              fontSize: 17,
-                              fontWeight: FontWeight.w600,
-                              color: _selected >= 0
-                                  ? const Color(0xFF0A0B09)
-                                  : const Color(0xFF4A4845))))),
+              child: AnchorPrimaryButton(
+                label: 'Continue',
+                icon: Icons.arrow_forward,
+                enabled: _selected >= 0,
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (_) => Quiz10Screen()));
+                },
+              ),
             ),
           ],
         ),

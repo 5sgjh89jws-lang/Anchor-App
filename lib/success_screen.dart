@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../quiz/quiz_1_screen.dart';
+import 'paywall/paywall_main_screen.dart';
+import 'widgets/anchor_button.dart';
+
 class SuccessScreen extends StatefulWidget {
   const SuccessScreen({super.key});
 
@@ -9,7 +11,6 @@ class SuccessScreen extends StatefulWidget {
 
 class _SuccessScreenState extends State<SuccessScreen>
     with TickerProviderStateMixin {
-
   late AnimationController _scaleController;
   late Animation<double> _scaleAnimation;
   late AnimationController _fadeController;
@@ -56,7 +57,6 @@ class _SuccessScreenState extends State<SuccessScreen>
       backgroundColor: const Color(0xFF0A0B09),
       body: Stack(
         children: [
-
           // ── GLOW ──
           Positioned(
             top: -100,
@@ -89,7 +89,6 @@ class _SuccessScreenState extends State<SuccessScreen>
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-
                     // ── ANIMATED RING + ICON ──
                     ScaleTransition(
                       scale: _scaleAnimation,
@@ -201,35 +200,16 @@ class _SuccessScreenState extends State<SuccessScreen>
                     // ── CTA BUTTON ──
                     FadeTransition(
                       opacity: _fadeAnimation,
-                      child: SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (_) => Quiz1Screen()),
-                            );
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFFC9A84C),
-                            foregroundColor: const Color(0xFF0A0B09),
-                            padding: const EdgeInsets.symmetric(vertical: 18),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                            elevation: 0,
-                          ),
-                          child: const Text(
-                            'Begin my journey →',
-                            style: TextStyle(
-                              fontFamily: 'Fraunces',
-                              fontSize: 17,
-                              fontWeight: FontWeight.w600,
-                              color: Color(0xFF0A0B09),
-                            ),
-                          ),
-                        ),
+                      child: AnchorPrimaryButton(
+                        label: 'Begin my journey',
+                        icon: Icons.arrow_forward,
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                                builder: (_) => const PaywallMainScreen()),
+                          );
+                        },
                       ),
                     ),
                   ],
