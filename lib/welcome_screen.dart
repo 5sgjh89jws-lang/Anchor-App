@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'quiz/quiz_1_screen.dart';
 import 'login_screen.dart';
+import 'widgets/anchor_button.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -191,8 +192,9 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             // Sign In — left
-                            GestureDetector(
-                              onTap: () {
+                            AnchorGhostButton(
+                              label: 'Sign in',
+                              onPressed: () {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -200,31 +202,14 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                                   ),
                                 );
                               },
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 20,
-                                  vertical: 14,
-                                ),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(14),
-                                  border: Border.all(
-                                    color: Colors.white.withValues(alpha: 0.1),
-                                  ),
-                                ),
-                                child: const Text(
-                                  'Sign in',
-                                  style: TextStyle(
-                                    fontFamily: 'DM Sans',
-                                    fontSize: 15,
-                                    color: Color(0xFF8A8780),
-                                  ),
-                                ),
-                              ),
                             ),
 
                             // Continue → right
-                            GestureDetector(
-                              onTap: () {
+                            AnchorPrimaryButton(
+                              label: 'Continue',
+                              icon: Icons.arrow_forward,
+                              expand: false,
+                              onPressed: () {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
@@ -232,36 +217,6 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                                   ),
                                 );
                               },
-                              child: Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 28,
-                                  vertical: 14,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: const Color(0xFFC9A84C),
-                                  borderRadius: BorderRadius.circular(14),
-                                ),
-                                child: const Row(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Text(
-                                      'Continue',
-                                      style: TextStyle(
-                                        fontFamily: 'Fraunces',
-                                        fontSize: 15,
-                                        fontWeight: FontWeight.w600,
-                                        color: Color(0xFF0A0B09),
-                                      ),
-                                    ),
-                                    SizedBox(width: 6),
-                                    Icon(
-                                      Icons.arrow_forward,
-                                      color: Color(0xFF0A0B09),
-                                      size: 16,
-                                    ),
-                                  ],
-                                ),
-                              ),
                             ),
                           ],
                         ),
